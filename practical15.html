@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Manipulation Demo</title>
+</head>
+<body>
+
+    <h2 id="title">Welcome to DOM</h2>
+
+    <p class="desc">Click the button to see DOM manipulation</p>
+
+    <div id="container" style="margin-top: 10px; padding: 10px; border: 1px solid #999;">
+        This is an empty box.
+    </div>
+
+    <br>
+
+    <button onclick="changeAll()">Click Me</button>
+
+    <script>
+        function changeAll() {
+
+            document.getElementById("title").innerHTML = "Title Changed using getElementById()";
+
+            document.querySelector(".desc").innerHTML = "Paragraph updated using querySelector()";
+
+            document.getElementById("container").innerHTML = "<b>New content added using innerHTML</b><br>This replaces the old text!";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User-Defined Functions & Scope Demo</title>
+</head>
+<body>
+
+    <h2>User-Defined Functions and Scope Demonstration in JavaScript</h2>
+    <div id="output"></div>
+
+    <script>
+
+        // Utility function to print on webpage
+        function log(msg) {
+            document.getElementById("output").innerHTML += msg + "<br>";
+        }
+
+        // ----------------------------------------------------
+        // 1. USER-DEFINED FUNCTIONS
+        // ----------------------------------------------------
+
+        // Function 1: Greet User
+        function greetUser(name) {
+            log("Hello " + name + ", welcome to JavaScript!");
+        }
+
+        // Function 2: Add two numbers
+        function addNumbers(a, b) {
+            return a + b;
+        }
+
+        // Invoking the functions
+        greetUser("Kaushalya");
+        let sum = addNumbers(10, 20);
+        log("Sum of 10 and 20 is: " + sum);
+
+
+        // ----------------------------------------------------
+        // 2. var, let, const Scope Demonstration
+        // ----------------------------------------------------
+
+        log("<br><b>=== Scope Demonstration ===</b>");
+
+        // Global variables
+        var globalVar = "Global var variable";
+        let globalLet = "Global let variable";
+        const globalConst = "Global const variable";
+
+        log(globalVar);
+        log(globalLet);
+        log(globalConst);
+
+
+        function scopeTest() {
+
+            log("<br><b>Inside Function Scope:</b>");
+
+            // Function-scope
+            var a = "var inside function";
+            let b = "let inside function";
+            const c = "const inside function";
+
+            log(a);
+            log(b);
+            log(c);
+
+            log("<br><b>Inside Block:</b>");
+            if (true) {
+                var x = "var inside block (NOT block scoped)";
+                let y = "let inside block (BLOCK scoped)";
+                const z = "const inside block (BLOCK scoped)";
+
+                log(x);
+                log(y);
+                log(z);
+            }
+
+            log("<br><b>Outside Block:</b>");
+
+            log(x); // Works → var ignores block scope
+
+            // y and z will cause errors here (block-scoped)
+            // log(y); ❌ ERROR
+            // log(z); ❌ ERROR
+        }
+
+        // Call the function
+        scopeTest();
+
+
+        // ----------------------------------------------------
+        // 3. var, let, const in Loops
+        // ----------------------------------------------------
+
+        log("<br><b>=== Loop Scope ===</b>");
+
+        for (var i = 1; i <= 3; i++) {
+            log("var i inside loop = " + i);
+        }
+        log("var i OUTSIDE loop = " + i); // Accessible outside loop
+
+
+        for (let j = 1; j <= 3; j++) {
+            log("let j inside loop = " + j);
+        }
+        log("let j OUTSIDE loop = ERROR (because block scoped)");
+
+
+        const PI = 3.14;
+        log("<br>Constant PI = " + PI);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selectors</title>
+    <style>
+        #red{
+            color: brown;
+            background-color: yellow;
+        }
+       .Green{
+            color: green;--
+            font-size: 25px;
+        }
+        div[descendant="div1"]{
+            color: blue;
+            font-size: 35px;
+        }
+        p[group="div2"]{
+            color: purple;
+            font-size: 30px;
+        }
+        body[universal="body"]{
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body universal="BODY1">
+<h1 id="red">selectors</h1>
+<span class="Green">
+    This is span element
+</span>
+   <div descendant="div1">
+    This is div element
+   </div> 
+   <p group="div2">
+    This is another div element
+   </p>
+</body>
+</html>
